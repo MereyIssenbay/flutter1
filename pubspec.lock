@@ -84,7 +84,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_villains:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: flutter_villains
       sha256: "3730c6dbe1f70517ed0ec6dad18619cb3ef4e0e09f901a68b463e1f932e4437c"
@@ -225,7 +225,7 @@ packages:
     source: hosted
     version: "13.0.0"
   wave:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: wave
       sha256: "01ebccb4caa9b150cbe4763aa2a23501bb582843a1f96281868bbb23cb4db1f9"
