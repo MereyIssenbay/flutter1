@@ -3,6 +3,24 @@ import 'package:wave/wave.dart';
 import 'package:wave/config.dart';
 import 'package:flutter_villains/villains/villains.dart';
 
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Interface Preferences',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MainScreen(),
+    );
+  }
+}
+
 class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -10,12 +28,9 @@ class MainScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Main Screen'),
       ),
-      body: Villain(
-        villainAnimation: VillainAnimation.fromTop(
-          from: Duration(milliseconds: 200),
-          to: Duration(milliseconds: 400),
-        ),
-        child: Stack(
+      body: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             WaveWidget(
               config: CustomConfig(
@@ -29,17 +44,38 @@ class MainScreen extends StatelessWidget {
                 gradientBegin: Alignment.bottomLeft,
                 gradientEnd: Alignment.topRight,
               ),
-              waveAmplitude: 20,
-              size: Size(double.infinity, double.infinity),
-            ),
-            Center(
-              child: Text(
-                'Welcome to Main Screen',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              waveAmplitude: 0,
+              size: Size(
+                double.infinity,
+                double.infinity,
               ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                VillainController.fade(
+                  context,
+                  child: NextScreen(),
+                );
+              },
+              child: Text('Go to Next Screen'),
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class NextScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Next Screen'),
+      ),
+      body: Container(
+        alignment: Alignment.center,
+        child: Text('You\'ve transitioned to the next screen!'),
       ),
     );
   }
